@@ -13,5 +13,12 @@ h1 {
     color: #f2f2f2;
     text-align: center;
     font-family: Verdana;
+    text-decoration: none;
     font-size: 17px;
+}
+
+.container {
+    display: flex;
+    align-items: top;
+    justify-content: center;
 }
