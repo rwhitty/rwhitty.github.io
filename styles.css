@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: #DCDCDC;
 }
 
 h1 {
@@ -18,6 +18,7 @@ h4 {
     background-color: #3333ff;
     height: 50px;
     border-radius: 10px;
+    display: flex;
 }
 
 .topnav a {
@@ -29,6 +30,7 @@ h4 {
     justify-content: space-between;
     text-decoration: none;
     font-size: 17px;
+    display: flex;
 }
 
 .container {
@@ -37,16 +39,14 @@ h4 {
     justify-content: left;
 }
 
-ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 img {
-    width: 30%
-    height: 30%
+    max-width: 25%;
+    height: auto;
+    width: auto\9;
     display: inline-block;
-    margin: 20px 100px;
+    margin: 10px 5%;
+    justify-content: center;
+    text-align: center;
     border-radius: 10px;
 }
