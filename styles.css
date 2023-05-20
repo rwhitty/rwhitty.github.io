@@ -12,7 +12,13 @@ h1 {
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
     font-family: Verdana;
+    text-decoration: none;
     font-size: 17px;
+}
+
+.container {
+    display: flex;
+    align-items: top;
+    justify-content: center;
 }
