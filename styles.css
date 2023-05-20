@@ -20,5 +20,5 @@ h1 {
 .container {
     display: flex;
     align-items: top;
-    justify-content: center;
+    justify-content: left;
 }
