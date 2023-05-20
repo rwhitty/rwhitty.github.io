@@ -5,6 +5,7 @@ h1 {
 
 .topnav {
     background-color: #3333ff;
+    height: 50px;
 }
 
 .topnav a {
@@ -21,4 +22,9 @@ h1 {
     display: flex;
     align-items: top;
     justify-content: left;
+}
+
+img {
+    border-radius: 10px;
+    padding: 10px;
 }
