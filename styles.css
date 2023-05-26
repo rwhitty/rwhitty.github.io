@@ -45,9 +45,8 @@ a {
 
 
 img {
-    max-width: 25%;
-    height: auto;
-    width: auto\9;
+    height: 256px;
+    width: 256px;
     display: inline-block;
     margin: 10px 5%;
     justify-content: center;
