@@ -19,14 +19,52 @@
             </div>
         </div>
         <h1 style="text-align: center; margin-bottom: 50px;">Wordle Solver</h1>
-        <button id="guess-button" style="left: 20px;">Make Guess</button>
-        <h4 id="current-guess">N/A</h4>
-        <div class="tile-container">
-            <button class="tile" id="tile-1-1"></button>
-            <button class="tile" id="tile-1-2"></button>
-            <button class="tile" id="tile-1-3"></button>
-            <button class="tile" id="tile-1-4"></button>
-            <button class="tile" id="tile-1-5"></button>
+        <div class="container" style="display: flex; justify-content: center; align-items: center;">
+            <div class="tile-container">
+                <button class="tile" id="tile-1-1"></button>
+                <button class="tile" id="tile-1-2"></button>
+                <button class="tile" id="tile-1-3"></button>
+                <button class="tile" id="tile-1-4"></button>
+                <button class="tile" id="tile-1-5" style=""></button>
+            </div>
+            <div class="container" style="position: absolute; right: 10%; display: flex; flex-direction: column;">
+                <button id="guess-button">Make Guess<br></button>
+                <h4 id="current-guess">N/A</h4>
+            </div>
+        </div>
+        <div class="keyboard-container">
+            <div class="keyboard-row">
+                <div class="key">Q</div>
+                <div class="key">W</div>
+                <div class="key">E</div>
+                <div class="key">R</div>
+                <div class="key">T</div>
+                <div class="key">Y</div>
+                <div class="key">U</div>
+                <div class="key">I</div>
+                <div class="key">O</div>
+                <div class="key">P</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="key">A</div>
+                <div class="key">S</div>
+                <div class="key">D</div>
+                <div class="key">F</div>
+                <div class="key">G</div>
+                <div class="key">H</div>
+                <div class="key">J</div>
+                <div class="key">K</div>
+                <div class="key">L</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="key">Z</div>
+                <div class="key">X</div>
+                <div class="key">C</div>
+                <div class="key">V</div>
+                <div class="key">B</div>
+                <div class="key">N</div>
+                <div class="key">M</div>
+            </div>
         </div>
         <input type="text" id="userGuess" style="position: absolute; left: -9999px;">
         <script type="module" src="../scripts/wordle.js"></script>
