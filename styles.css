@@ -7,10 +7,19 @@ h1 {
     font-family: Verdana;
 }
 
+h2 {
+    color: blue;
+    font-family: Verdana;
+}
+
 h4 {
     margin: 8px;
     font-weight: normal;
     color: black;
+    font-family: Verdana;
+}
+
+p {
     font-family: Verdana;
 }
 
@@ -68,4 +77,34 @@ img {
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+.popup-container {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: 75%;
+    background-color: #fff;
+    z-index: 999;
+    border-radius: 15px;
+}
+
+.popup {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 500px;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
 }
