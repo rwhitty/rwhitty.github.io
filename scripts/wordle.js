@@ -1,15 +1,48 @@
 import { possible_words_list } from "./wordLists.js";
 
-var counter = 0;
-function handleClick() {
-    console.log("oof");
-    var oofText = document.createElement("p");
-    oofText.textContent = possible_words_list[counter];
-    document.body.appendChild(oofText);
-    counter += 1;
-}
+window.addEventListener("load", function() {
+    var popupContainer = document.getElementById("popup-container");
+    var closeBtn = document.getElementById("close-button");
+    closeBtn.addEventListener("click", function() {
+    popupContainer.style.display = "none";
+    });
+});
 
-document.getElementById("tile-1-1").addEventListener("click", handleClick);
+window.addEventListener("DOMContentLoaded", function() {
+    var guess_button = document.getElementById("guess-button");
+    var result_text = document.getElementById("current-guess");
+    guess_button.addEventListener("click", function() {
+        var guess = make_guess();
+        result_text.textContent = guess;
+    });
+});
+
+window.addEventListener("keypress", function() {
+    var userGuess = document.getElementById("userGuess");
+    var buttons = [
+        document.getElementById("tile-" + (num_guesses + 1).toString() + "-1"),
+        document.getElementById("tile-" + (num_guesses + 1).toString() + "-2"),
+        document.getElementById("tile-" + (num_guesses + 1).toString() + "-3"),
+        document.getElementById("tile-" + (num_guesses + 1).toString() + "-4"),
+        document.getElementById("tile-" + (num_guesses + 1).toString() + "-5")
+    ];
+    userGuess.addEventListener("input", function() {
+        var inputText = userGuess.value;
+        console.log(inputText);
+        if (inputText.length > 5) {
+            userGuess.value = inputText.slice(0, 5);
+            inputText = inputText.slice(0, 5);
+        }
+        for (var i = 0; i < 5; i++) {
+            if (i < inputText.length) {
+                buttons[i].textContent = inputText.charAt(i);
+            } else {
+                buttons[i].textContent = "";
+            }
+        }
+    });
+    userGuess.focus();
+});
 
 var possible_words = possible_words_list;
 var num_guesses = 0;
@@ -78,13 +111,16 @@ function make_guess() {
         var guess = possible_words[i];
         var curr_ent = entropy(probabilityDist(divideByPattern(guess)));
         if (curr_ent > highest_ent) {
+            highest_ent = curr_ent;
+            console.log(best_guess, highest_ent);
             best_guess = guess;
         }
     }
-    return guess;
+    return best_guess;
 }
 
 function updatePossibilities(guess, pattern) {
     var pattern_to_subgroup = divideByPattern(guess);
     possible_words = pattern_to_subgroup[pattern.toString()];
+    num_guesses += 1;
 }
