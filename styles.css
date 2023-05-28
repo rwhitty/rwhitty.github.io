@@ -74,6 +74,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
 }
 
 .popup-container {
@@ -111,8 +112,9 @@ img {
   flex-wrap: wrap;
   flex-direction: column;
   gap: 5px;
-  margin-top: auto;
-  max-width: 90%;
+  position: absolute;
+  bottom: 2vh;
+  min-width: 300px;
   justify-content: center;
   align-items: center;
 }
