@@ -1,5 +1,16 @@
 import { possible_words_list } from "./wordLists.js";
 
+var possible_words = possible_words_list;
+var num_guesses = 0;
+var length_curr_guess = 0;
+var buttons = [
+    document.getElementById("tile-" + (num_guesses + 1).toString() + "-1"),
+    document.getElementById("tile-" + (num_guesses + 1).toString() + "-2"),
+    document.getElementById("tile-" + (num_guesses + 1).toString() + "-3"),
+    document.getElementById("tile-" + (num_guesses + 1).toString() + "-4"),
+    document.getElementById("tile-" + (num_guesses + 1).toString() + "-5")
+];
+
 window.addEventListener("load", function() {
     var popupContainer = document.getElementById("popup-container");
     var closeBtn = document.getElementById("close-button");
@@ -17,15 +28,18 @@ window.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+window.addEventListener("load", function() {
+    var q = document.getElementById("qkey");
+    q.addEventListener("click", function() {
+        if (length_curr_guess < 5) {
+            buttons[length_curr_guess].textContent = "Q";
+        }
+        length_curr_guess += 1;
+    });
+});
+
 window.addEventListener("keypress", function() {
     var userGuess = document.getElementById("userGuess");
-    var buttons = [
-        document.getElementById("tile-" + (num_guesses + 1).toString() + "-1"),
-        document.getElementById("tile-" + (num_guesses + 1).toString() + "-2"),
-        document.getElementById("tile-" + (num_guesses + 1).toString() + "-3"),
-        document.getElementById("tile-" + (num_guesses + 1).toString() + "-4"),
-        document.getElementById("tile-" + (num_guesses + 1).toString() + "-5")
-    ];
     userGuess.addEventListener("input", function() {
         var inputText = userGuess.value;
         console.log(inputText);
@@ -35,17 +49,15 @@ window.addEventListener("keypress", function() {
         }
         for (var i = 0; i < 5; i++) {
             if (i < inputText.length) {
-                buttons[i].textContent = inputText.charAt(i);
+                buttons[i].textContent = inputText.charAt(i).toUpperCase();
             } else {
                 buttons[i].textContent = "";
             }
         }
+        length_curr_guess = inputText.length;
     });
     userGuess.focus();
 });
-
-var possible_words = possible_words_list;
-var num_guesses = 0;
 
 function computePattern(guess, answer) {
     var pattern = [0, 0, 0, 0, 0];
