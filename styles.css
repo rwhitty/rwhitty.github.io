@@ -65,12 +65,12 @@ img {
       height: 50px;
       background-color: #DCDCDC;
       border: 2px solid black;
-      border-radius: 4px;
-      margin: 5px;
+      border-radius: 2px;
+      margin: 2px;
 }
 
 .tile-container {
-    margin: 4px;
+    margin: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
