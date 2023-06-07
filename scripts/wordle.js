@@ -1,63 +1,89 @@
 import { possible_words_list } from "./wordLists.js";
 
+// Initialize useful constants
+
+var gameMode = "inputGuess";
 var possible_words = possible_words_list;
 var num_guesses = 0;
 var length_curr_guess = 0;
 var buttons = [
+    document.getElementById("tile-1-1"),
+    document.getElementById("tile-1-2"),
+    document.getElementById("tile-1-3"),
+    document.getElementById("tile-1-4"),
+    document.getElementById("tile-1-5")
+];
+
+
+
+// Initialize page elements
+
+var user_guess_text = document.getElementById("user-guess");
+var bot_guess_button = document.getElementById("bot-guess-button");
+var bot_guess_text = document.getElementById("current-bot-guess");
+var user_submit_button = document.getElementById("user-guess-button");
+var user_instructions_text = document.getElementById("user-instructions");
+
+
+
+// Utility functions
+
+function addButtons() {
+    buttons = [
     document.getElementById("tile-" + (num_guesses + 1).toString() + "-1"),
     document.getElementById("tile-" + (num_guesses + 1).toString() + "-2"),
     document.getElementById("tile-" + (num_guesses + 1).toString() + "-3"),
     document.getElementById("tile-" + (num_guesses + 1).toString() + "-4"),
     document.getElementById("tile-" + (num_guesses + 1).toString() + "-5")
-];
+    ];
+}
 
-window.addEventListener("load", function() {
-    var popupContainer = document.getElementById("popup-container");
-    var closeBtn = document.getElementById("close-button");
-    closeBtn.addEventListener("click", function() {
-    popupContainer.style.display = "none";
-    });
+
+
+// Event listeners
+
+bot_guess_button.addEventListener("click", function() {
+    bot_guess_text.textContent = make_guess();
+    user_guess_text.focus();
 });
 
-window.addEventListener("DOMContentLoaded", function() {
-    var guess_button = document.getElementById("guess-button");
-    var result_text = document.getElementById("current-guess");
-    guess_button.addEventListener("click", function() {
-        var guess = make_guess();
-        result_text.textContent = guess;
-    });
-});
-
-window.addEventListener("load", function() {
-    var q = document.getElementById("qkey");
-    q.addEventListener("click", function() {
-        if (length_curr_guess < 5) {
-            buttons[length_curr_guess].textContent = "Q";
+user_guess_text.addEventListener("input", function() {
+    var invalidChars = "`~1!2@3#4$5%6^7&8*9(0)-_=+[{]}|;:'\"\\,<.>/?";
+    for (var i = 0; i < invalidChars.length; i++) {
+        if (user_guess_text.value.includes(invalidChars[i])) {
+            user_guess_text.value = user_guess_text.value.replace(invalidChars[i], "");
         }
-        length_curr_guess += 1;
-    });
+    }
+    if (user_guess_text.value.length > 5) {
+        user_guess_text.value = user_guess_text.value.slice(0, 5);
+    }
+    for (var i = 0; i < 5; i++) {
+        if (i < user_guess_text.value.length) {
+            buttons[i].textContent = user_guess_text.value[i].toUpperCase();
+        } else {
+            buttons[i].textContent = "";
+        }
+    }
+    length_curr_guess = user_guess_text.value.length;
+});
+
+user_submit_button.addEventListener("click", function() {
+    if (user_guess_text.value.length == 5 && possible_words.includes(user_guess_text.value) && gameMode == "inputGuess") {
+        gameMode = "reviewGuess";
+        user_instructions_text.textContent = "You guessed " + user_guess_text.value + "! Now click the letters to describe the pattern";
+    } else {
+        user_instructions_text.textContent = "You submitted an invalid word!"
+        user_guess_text.focus();
+    }
 });
 
 window.addEventListener("keypress", function() {
-    var userGuess = document.getElementById("userGuess");
-    userGuess.addEventListener("input", function() {
-        var inputText = userGuess.value;
-        console.log(inputText);
-        if (inputText.length > 5) {
-            userGuess.value = inputText.slice(0, 5);
-            inputText = inputText.slice(0, 5);
-        }
-        for (var i = 0; i < 5; i++) {
-            if (i < inputText.length) {
-                buttons[i].textContent = inputText.charAt(i).toUpperCase();
-            } else {
-                buttons[i].textContent = "";
-            }
-        }
-        length_curr_guess = inputText.length;
-    });
-    userGuess.focus();
+    user_guess_text.focus();
 });
+
+
+
+// Real info theory solver functionality
 
 function computePattern(guess, answer) {
     var pattern = [0, 0, 0, 0, 0];
@@ -124,7 +150,6 @@ function make_guess() {
         var curr_ent = entropy(probabilityDist(divideByPattern(guess)));
         if (curr_ent > highest_ent) {
             highest_ent = curr_ent;
-            console.log(best_guess, highest_ent);
             best_guess = guess;
         }
     }
