@@ -11,13 +11,6 @@
             <a href="../academic.html">Academic</a>
             <a href="../forfun.html">For Fun</a>
         </div>
-        <div class="popup-container" id="popup-container">
-            <span class="close-button" id="close-button">&times;</span>
-            <div class="popup">
-                <h2>Welcome to Wordle Solver!</h2>
-                <p>Insert info here</p>
-            </div>
-        </div>
         <h1 style="text-align: center; margin-bottom: 50px;">Wordle Solver</h1>
         <div class="container" style="display: flex; justify-content: center; align-items: center;">
             <div class="tile-container">
@@ -27,12 +20,14 @@
                 <button class="tile" id="tile-1-4"></button>
                 <button class="tile" id="tile-1-5" style=""></button>
             </div>
-            <div class="container" style="position: absolute; right: 10%; display: flex; flex-direction: column;">
-                <button id="guess-button">Make Guess<br></button>
-                <h4 id="current-guess">N/A</h4>
+            <div class="container" style="position: absolute; right: 10%; top: 20%; display: flex; flex-direction: column; width: 200px;">
+                <button id="bot-guess-button">Bot Guess<br></button>
+                <h4 id="current-bot-guess">N/A</h4>
+                <button id="user-guess-button">Submit Guess</button>
+                <h4 id="user-instructions"></h4>
             </div>
         </div>
-        <div class="container" style="display: flex; justify-content: center;">
+        <!-- <div class="container" style="display: flex; justify-content: center;">
             <div class="keyboard-container">
                 <div class="keyboard-row">
                     <div class="key" id="qkey">Q</div>
@@ -68,8 +63,8 @@
                     <div class="key" id="delkey"><-</div>
                 </div>
             </div>
-        </div>
-        <input type="text" id="userGuess" style="position: absolute; left: -9999px;">
+        </div> -->
+        <input type="text" id="user-guess" style="position: absolute; left: -9999px;">
         <script type="module" src="../scripts/wordle.js"></script>
     </body>
 </html>
