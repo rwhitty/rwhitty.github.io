@@ -6,6 +6,7 @@ var gameMode = "inputGuess";
 var possible_words = possible_words_list;
 var num_guesses = 0;
 var length_curr_guess = 0;
+var curr_guess = "";
 var buttons = [
     document.getElementById("tile-1-1"),
     document.getElementById("tile-1-2"),
@@ -42,6 +43,24 @@ function addButtons() {
 
 // Event listeners
 
+function add_button_listeners() {
+    for (var i = 0; i < 5; i++) {
+        buttons[i].addEventListener("click", function() {
+            if (gameMode == "reviewGuess") {
+                if (this.style.backgroundColor.toString() == "rgb(90, 90, 90)") {
+                    this.style.backgroundColor = "#ffc425";
+                } else if (this.style.backgroundColor.toString() == "rgb(255, 196, 37)") {
+                    this.style.backgroundColor = "#019a01";
+                } else if (this.style.backgroundColor == "rgb(1, 154, 1)") {
+                    this.style.backgroundColor = "#5A5A5A";
+                }
+            }
+        })
+    }
+}
+
+add_button_listeners();
+
 bot_guess_button.addEventListener("click", function() {
     bot_guess_text.textContent = make_guess();
     user_guess_text.focus();
@@ -70,10 +89,20 @@ user_guess_text.addEventListener("input", function() {
 user_submit_button.addEventListener("click", function() {
     if (user_guess_text.value.length == 5 && possible_words.includes(user_guess_text.value) && gameMode == "inputGuess") {
         gameMode = "reviewGuess";
-        user_instructions_text.textContent = "You guessed " + user_guess_text.value + "! Now click the letters to describe the pattern";
-    } else {
+        curr_guess = user_guess_text.value;
+        this.textContent = "Submit Pattern";
+        user_instructions_text.textContent = "You guessed " + curr_guess + "! Now click the letters to describe the pattern";
+        for (var i = 0; i < 5; i++) {
+            buttons[i].style.backgroundColor = "#5A5A5A";
+            buttons[i].style.color = "white";
+        }
+    } else if (gameMode == "inputGuess") {
         user_instructions_text.textContent = "You submitted an invalid word!"
         user_guess_text.focus();
+    } else if (gameMode == "reviewGuess") {
+        var submitted_pattern = pattern_from_buttons();
+        updatePossibilities(curr_guess, submitted_pattern);
+        gameMode = "inputGuess";
     }
 });
 
@@ -84,6 +113,18 @@ window.addEventListener("keypress", function() {
 
 
 // Real info theory solver functionality
+
+function pattern_from_buttons() {
+    var return_pattern = [0, 0, 0, 0, 0];
+    for (var i = 0; i < 5; i++) {
+        if (buttons[i].style.backgroundColor.toString() == "rgb(255, 196, 37)") {
+            return_pattern[i] = 1;
+        } else if (buttons[i].style.backgroundColor.toString() == "rgb(1, 154, 1)") {
+            return_pattern[i] = 2;
+        }
+    }
+    return return_pattern;
+}
 
 function computePattern(guess, answer) {
     var pattern = [0, 0, 0, 0, 0];
