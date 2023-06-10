@@ -68,14 +68,17 @@ img {
       border-radius: 2px;
       margin: 2px;
       font-size: 20px;
+      visibility: hidden;
 }
 
 .tile-container {
     margin: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    row-gap: 5px;
     position: absolute;
+    top: 150px;
 }
 
 .popup-container {
