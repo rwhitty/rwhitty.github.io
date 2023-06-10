@@ -7,13 +7,7 @@ var possible_words = possible_words_list;
 var num_guesses = 0;
 var length_curr_guess = 0;
 var curr_guess = "";
-var buttons = [
-    document.getElementById("tile-1-1"),
-    document.getElementById("tile-1-2"),
-    document.getElementById("tile-1-3"),
-    document.getElementById("tile-1-4"),
-    document.getElementById("tile-1-5")
-];
+var buttons = [];
 
 
 
@@ -29,7 +23,7 @@ var user_instructions_text = document.getElementById("user-instructions");
 
 // Utility functions
 
-function addButtons() {
+function add_buttons() {
     buttons = [
     document.getElementById("tile-" + (num_guesses + 1).toString() + "-1"),
     document.getElementById("tile-" + (num_guesses + 1).toString() + "-2"),
@@ -37,14 +31,8 @@ function addButtons() {
     document.getElementById("tile-" + (num_guesses + 1).toString() + "-4"),
     document.getElementById("tile-" + (num_guesses + 1).toString() + "-5")
     ];
-}
-
-
-
-// Event listeners
-
-function add_button_listeners() {
     for (var i = 0; i < 5; i++) {
+        buttons[i].style.visibility = "visible";
         buttons[i].addEventListener("click", function() {
             if (gameMode == "reviewGuess") {
                 if (this.style.backgroundColor.toString() == "rgb(90, 90, 90)") {
@@ -55,11 +43,15 @@ function add_button_listeners() {
                     this.style.backgroundColor = "#5A5A5A";
                 }
             }
-        })
+        });
     }
 }
 
-add_button_listeners();
+add_buttons();
+
+
+
+// Event listeners
 
 bot_guess_button.addEventListener("click", function() {
     bot_guess_text.textContent = make_guess();
@@ -103,6 +95,9 @@ user_submit_button.addEventListener("click", function() {
         var submitted_pattern = pattern_from_buttons();
         updatePossibilities(curr_guess, submitted_pattern);
         gameMode = "inputGuess";
+        add_buttons();
+        this.textContent = "Submit Guess";
+        user_guess_text.value = "";
     }
 });
 
