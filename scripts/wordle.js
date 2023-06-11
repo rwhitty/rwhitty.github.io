@@ -181,6 +181,9 @@ function entropy(dist) {
 function make_guess() {
     var best_guess = "";
     var highest_ent = 0;
+    if (possible_words.length == 1) {
+        return possible_words[0];
+    }
     for (var i = 0; i < possible_words.length; i++) {
         var guess = possible_words[i];
         var curr_ent = entropy(probabilityDist(divideByPattern(guess)));
