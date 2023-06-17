@@ -79,7 +79,7 @@ user_guess_text.addEventListener("input", function() {
 });
 
 user_submit_button.addEventListener("click", function() {
-    if (user_guess_text.value.length == 5 && possible_words.includes(user_guess_text.value) && gameMode == "inputGuess") {
+    if (user_guess_text.value.length == 5 && possible_words_list.includes(user_guess_text.value) && gameMode == "inputGuess") {
         gameMode = "reviewGuess";
         curr_guess = user_guess_text.value;
         this.textContent = "Submit Pattern";
@@ -181,11 +181,11 @@ function entropy(dist) {
 function make_guess() {
     var best_guess = "";
     var highest_ent = 0;
-    if (possible_words.length == 1) {
+    if (possible_words.length <= 2) {
         return possible_words[0];
     }
-    for (var i = 0; i < possible_words.length; i++) {
-        var guess = possible_words[i];
+    for (var i = 0; i < possible_words_list.length; i++) {
+        var guess = possible_words_list[i];
         var curr_ent = entropy(probabilityDist(divideByPattern(guess)));
         if (curr_ent > highest_ent) {
             highest_ent = curr_ent;
