@@ -13,6 +13,14 @@
         </div>
         <h1 style="text-align: center; margin-bottom: 50px;">Wordle Solver</h1>
         <div id="button-container" class="container" style="display: flex; justify-content: center; align-items: center;">
+            <h4 style="position: fixed; top: 100px; left: 50px; width: 300px;">
+                Directions:<br><br>
+                - This solver is designed to be used alongside a game of Wordle.<br>
+                - To solicit the solver's guess, click the "bot guess" button.<br>
+                - Input that guess (or any other) into your Wordle game.<br>
+                - Click "submit guess", and click the letters of your submitted guess to describe the pattern from Wordle.<br>
+                - Click "submit pattern", and repeat! (Don't use this to cheat!)
+            </h4>
             <div id="tile-container" class="tile-container">
                 <button class="tile" id="tile-1-1"></button>
                 <button class="tile" id="tile-1-2"></button>
@@ -45,7 +53,7 @@
                 <button class="tile" id="tile-6-4"></button>
                 <button class="tile" id="tile-6-5"></button>
             </div>
-            <div class="container" style="position: absolute; right: 10%; top: 20%; display: flex; flex-direction: column; width: 200px;">
+            <div class="container" style="position: absolute; right: 10%; top: 20%; flex-direction: column; width: 200px;">
                 <button id="bot-guess-button">Bot Guess<br></button>
                 <h4 id="current-bot-guess">N/A</h4>
                 <button id="user-guess-button">Submit Guess</button>
