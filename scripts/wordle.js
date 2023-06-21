@@ -179,9 +179,12 @@ function entropy(dist) {
 }
 
 function make_guess() {
+<<<<<<< HEAD
     if (num_guesses == 0) {
         return "raise";
     }
+=======
+>>>>>>> 8aa02f5af852a9ede7d787439ac31e490bec78d8
     var best_guess = "";
     var highest_ent = 0;
     if (possible_words.length <= 2) {
