@@ -179,16 +179,15 @@ function entropy(dist) {
 }
 
 function make_guess() {
-<<<<<<< HEAD
     if (num_guesses == 0) {
         return "raise";
     }
-=======
->>>>>>> 8aa02f5af852a9ede7d787439ac31e490bec78d8
     var best_guess = "";
     var highest_ent = 0;
     if (possible_words.length <= 2) {
         return possible_words[0];
+    } else if (possible_words.length <= 50) {
+        console.log(possible_words);
     }
     for (var i = 0; i < possible_words_list.length; i++) {
         var guess = possible_words_list[i];
