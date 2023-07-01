@@ -186,8 +186,6 @@ function make_guess() {
     var highest_ent = 0;
     if (possible_words.length <= 2) {
         return possible_words[0];
-    } else if (possible_words.length <= 50) {
-        console.log(possible_words);
     }
     for (var i = 0; i < possible_words_list.length; i++) {
         var guess = possible_words_list[i];
