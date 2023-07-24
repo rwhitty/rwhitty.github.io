@@ -2,7 +2,7 @@ body {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    font-family: Verdana;
+    font-family: 'Verdana';
     height: 100vh;
 }
 
