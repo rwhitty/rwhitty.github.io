@@ -7,6 +7,12 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    margin: 0; /* Reset margin for body element */
+}
+
+/* Set box-sizing to border-box for all elements */
+* {
+    box-sizing: border-box;
 }
 
 /* Modern Navbar */
@@ -76,7 +82,6 @@ a {
     overflow: hidden;
     background-color: #ffffff;
     margin: 10px auto;
-    transition: background-color 0.3s ease;
 }
 
 .social-icons a img {
@@ -92,7 +97,7 @@ a {
 /* Text Section */
 .text-section {
     margin: 50px auto;
-    margin-top: -200px;
+    margin-top: -300px;
     max-width: 800px;
     text-align: center;
 }
@@ -106,4 +111,43 @@ a {
 .text-section p {
     color: #666;
     font-size: 18px;
+}
+
+/* Media Query for Responsive Layout */
+@media (max-width: 1172px) {
+    .profile-container {
+        flex-direction: row; /* Adjust the direction for horizontal layout */
+        justify-content: center; /* Center the elements horizontally */
+        align-items: center; /* Center the elements vertically */
+        margin-left: 0; /* Remove left margin */
+    }
+
+    .profile-wrapper {
+        flex-direction: row; /* Adjust the direction for horizontal layout */
+        justify-content: center; /* Center the elements horizontally */
+        margin-left: 0;
+    }
+
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .social-icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+    }
+
+    .social-icons a {
+        margin: 0 10px;
+    }
+
+    .text-section {
+        margin-top: 20px;
+    }
 }
