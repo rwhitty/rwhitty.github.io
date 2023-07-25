@@ -97,8 +97,11 @@ a {
 /* Text Section */
 .text-section {
     margin: 50px auto;
-    margin-top: -300px;
+    margin-top: -360px;
     max-width: 800px;
+    position: absolute;
+    left: 25%;
+    right: calc(15% - 20px);
     text-align: center;
 }
 
@@ -114,7 +117,7 @@ a {
 }
 
 /* Media Query for Responsive Layout */
-@media (max-width: 1172px) {
+@media (max-width: 1000px) {
     .profile-container {
         flex-direction: row; /* Adjust the direction for horizontal layout */
         justify-content: center; /* Center the elements horizontally */
@@ -149,5 +152,7 @@ a {
 
     .text-section {
         margin-top: 20px;
+        position: unset;
+        left: unset;
     }
 }
