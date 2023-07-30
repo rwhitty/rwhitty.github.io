@@ -1,32 +1,51 @@
 <!DOCTYPE html>
-    <html>
-        <head>
-            <title>Ryan's Website</title>
-            <link rel="stylesheet" href="styles.css">
-        </head>
-    <body>
-        <div class="topnav">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan's Website</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <!-- Modern Navbar -->
+    <nav>
+        <ul>
             <a class="#active" href="">Home</a>
-            <a href="professional.html">Professional</a>
             <a href="academic.html">Academic</a>
+            <a href="professional.html">Professional</a>
+            <a href="forfun.html">Projects</a>
             <a href="forfun.html">For Fun</a>
-        </div>
-        <h1 style="text-align:center">Welcome to my website!</h1>
-        <div class="container">
-            <img src="images/headshot.jpeg">
-            <div>
-                <h4>Hello World! I'm Ryan, a junior at UC Berkeley studying computer science. Have a look around!<br><br>
-                    A bit more about me:<br>
-                </h4>
-                <div class="container" style="margin-left: 32px;">
-                    <h4>
-                        - I'm from Lake Arrowhead, CA but currently living in the Bay Area!<br>
-                        - I'm fascinated by theoretical computer science and machine learning.<br>
-                        - I'm an avid musician; I mostly play piano but also dabble in guitar, trumpet, and drums.<br>
-                        - My other interests include board games, traveling, basketball, and urban planning.
-                    </h4>
-                </div>
+        </ul>
+    </nav>
+
+    <!-- Container for Profile Picture and Social Media Logos -->
+    <div class="profile-container">
+        <!-- Profile Picture and Social Media Logos Wrapper -->
+        <div class="profile-wrapper">
+            <!-- Circular Profile Picture -->
+            <div class="profile-picture">
+                <a href="/images/headshot.jpeg" target="_blank">
+                    <img src="/images/headshot.jpeg" alt="Profile Picture">
+                </a>
+            </div>
+
+            <!-- Social Media Logos -->
+            <div class="social-icons">
+                <a href="mailto:rwhitty@berkeley.edu" target="_blank"><img src="/images/email-logo.jpeg" alt="Email"></a>
+                <a href="https://github.com/rwhitty" target="_blank"><img src="/images/github-logo.jpeg" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/ryan-whitty" target="_blank"><img src="/images/linkedin-logo.jpeg" alt="LinkedIn"></a>
             </div>
         </div>
-    </body>
+    </div>
+
+    <!-- Text Section -->
+    <div class="text-section">
+        <h1>Hello world!</h1>
+        <p>
+            I'm Ryan Whitty, a junior at UC Berkeley. I am an aspiring computer scientist, mathematician, and musician, 
+            among other things. Have a look around to see some of my projects and other areas of interest!
+        </p>
+    </div>
+</body>
 </html>
