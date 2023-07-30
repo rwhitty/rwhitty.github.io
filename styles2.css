@@ -102,7 +102,6 @@ a {
 }
 
 /* Media Query for Responsive Layout */
-@media (max-width: 1172px) {
 @media (max-width: 1000px) {
     .profile-container {
         flex-direction: row; /* Adjust the direction for horizontal layout */
