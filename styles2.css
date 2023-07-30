@@ -42,7 +42,7 @@ a {
     flex-direction: column; /* Stacks elements vertically */
     align-items: flex-start; /* Align elements to the left */
     margin: 50px 0;
-    margin-left: 20px; /* Added left margin */
+    margin-left: 20px; 
 }
 
 /* Profile Picture and Social Media Logos Wrapper */
@@ -122,7 +122,8 @@ a {
         flex-direction: row; /* Adjust the direction for horizontal layout */
         justify-content: center; /* Center the elements horizontally */
         align-items: center; /* Center the elements vertically */
-        margin-left: 0; /* Remove left margin */
+        margin-left: 20px;
+        margin-right: 10px;
     }
 
     .profile-wrapper {
@@ -134,7 +135,6 @@ a {
     .profile-picture {
         width: 150px;
         height: 150px;
-        margin-right: 20px;
         margin-bottom: 0;
     }
 
@@ -151,6 +151,8 @@ a {
     }
 
     .text-section {
+        margin-left: 10px;
+        margin-right: 10px;
         margin-top: 20px;
         position: unset;
         left: unset;
