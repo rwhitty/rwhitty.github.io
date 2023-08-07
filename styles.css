@@ -36,8 +36,8 @@ h1 {
     margin-top: 20px;
 }
 
-a {
-    color: #666;
+.link {
+    color: #3498db;
     text-align: center;
 }
 
