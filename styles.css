@@ -36,6 +36,11 @@ h1 {
     margin-top: 20px;
 }
 
+a {
+    color: #666;
+    text-align: center;
+}
+
 /* Container for Profile Picture and Social Media Logos */
 .profile-container {
     display: flex;
