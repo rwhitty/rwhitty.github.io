@@ -72,7 +72,6 @@ h1 {
 /* Social Media Logos */
 .social-icons {
     text-align: center; /* Center the icons horizontally */
-    margin-top: 20px;
 }
 .social-icons a {
     display: block;
@@ -98,7 +97,7 @@ h1 {
     margin-top: -360px;
     position: absolute;
     left: 25%;
-    right: calc(15% - 20px);
+    right: calc(12.5% - 20px);
     text-align: center;
 }
 
