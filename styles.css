@@ -95,6 +95,7 @@ h1 {
 .text-section {
     margin: 50px auto;
     max-width: 800px;
+    margin-top: -360px;
     position: absolute;
     left: 25%;
     right: calc(15% - 20px);
