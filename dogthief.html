@@ -6,7 +6,7 @@
   <title>Dogthief</title>
   <script>
         function fetchWelcomeMessage() {
-            fetch('http://ec2-3-147-54-114.us-east-2.compute.amazonaws.com/welcome')
+            fetch('https://ec2-3-147-54-114.us-east-2.compute.amazonaws.com/welcome')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('message').innerText = data.message;
